@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="imgContainer" (click)="productdetails(productcard)"><img [src]="productcard.url"></div>
+    <div class="detailsContainer">
+        <p>{{productcard.name}}</p>
+        <p>{{productcard.price |currency}}</p>
+        <p *ngIf="this.router.url==='/productInDetails'">{{productcard.description}}</p>
+
+        <form (ngSubmit)="addToCart.emit(productcard)" #form="ngForm">
+            <input name="amount" type="number" max="10" min="1" #amounts="ngModel" [(ngModel)]="productcard.amount"
+                required [value]="0" placeholder="amount" (ngModelChange)="mytotal.emit()">
+
+            <br>
+            <p *ngIf="amounts.invalid">please select amount</p>
+
+            <button type="submit" [disabled]="amounts.invalid" *ngIf="this.router.url!=='/shoppingCart'">Add To
+                Cart</button>
+            <button *ngIf="this.router.url==='/shoppingCart'" (click)="RemoveFromCart(productcard)">Remove From
+                Cart</button>
+        </form>
+
+
+        <br>
+        <a *ngIf="this.router.url==='/productDetails'" routerLink="">Back To ProductList</a>
+    </div>
+</div>

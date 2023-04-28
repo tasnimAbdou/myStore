@@ -1,0 +1,15 @@
+.productdetails{
+    border: 2px salmon solid;
+    border-radius: 5px;
+    width: 50em;
+    margin: 5em auto;
+    justify-self: center;
+
+
+    
+}
+.product{
+margin:auto;
+width: 90%;
+
+}

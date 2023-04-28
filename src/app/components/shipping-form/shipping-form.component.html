@@ -1,0 +1,41 @@
+<div>
+    <form #Form="ngForm" (ngSubmit)="submitInfo()">
+        <label>Full Name</label>
+        <br>
+        <input type="text" name="fullName" #fullname="ngModel" [(ngModel)]="fullName" required minlength="3"
+            placeholder="(minimum 3 characters)">
+
+        <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
+            please enter valid name
+            <div *ngIf="fullname.errors?.['required']">fullname required</div>
+            <div *ngIf="fullname.errors?.['minlength']">minimum length is 3 characters</div>
+        </div>
+        <br>
+        <label>Address</label>
+        <br>
+
+        <input type="text" name="Address" [(ngModel)]="Address" #address="ngModel" required minlength="6"
+            placeholder="(minimum 6 characters)">
+        <div *ngIf="address.invalid && (address.dirty || address.touched)">
+            please enter valid address
+            <div *ngIf="address.errors?.['required']">address required</div>
+            <div *ngIf="address.errors?.['minlength']">minimum length is 6 characters</div>
+        </div>
+        <br>
+        <label>Credit Card Number</label>
+        <br>
+
+        <input type="password" name="creditNo" [(ngModel)]="creditNo" #creditno="ngModel" required minlength="16"
+            [maxLength]="16" placeholder="(16 digit number)" pattern="[0-9]+">
+        <div *ngIf="creditno.invalid && (creditno.dirty || creditno.touched)">
+            <div *ngIf="creditno.errors?.['required']">fullname required</div>
+            <div *ngIf="creditno.errors?.['minlength']">minimum length is 16 characters</div>
+            <div *ngIf="creditno.errors?.['pattern']">please enter number only</div>
+
+        </div>
+        <p>we 'll never share your payment with anyone else</p>
+        <br>
+
+        <button type="submit" [disabled]="Form.invalid">Submit</button>
+    </form>
+</div>

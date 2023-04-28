@@ -1,0 +1,35 @@
+
+.container{
+height: inherit;
+width: inherit;
+text-align: center;
+margin: auto;
+display:inline-block;
+flex-wrap: wrap;
+cursor: pointer;
+margin: 20px 30px;
+}
+.imgContainer{
+    float: left;
+    width: 10em;
+}
+detailsContainer{
+    float: right;
+    width: 10em;
+}
+img{
+    margin:5px 5px auto;
+    border: 1px solid lightblue;
+    width: inherit;
+    height: inherit;
+padding: 10px;
+}
+button{
+    margin: 2px 3px;
+    width: 90px;
+    background-color: lightsalmon;
+    border-color: aliceblue;
+}
+input{
+    width: 70px;
+}

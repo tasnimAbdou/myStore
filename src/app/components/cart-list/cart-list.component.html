@@ -1,0 +1,18 @@
+<div class="carts">
+<app-product-details *ngFor="let item of carts$" [productcard]="item" [id]="item.id" 
+(removeFromCart)="RemoveFromCart($event)" (mytotal)="detectchange($event)" >
+
+</app-product-details>
+
+
+</div>
+<div id="total">
+<p *ngIf="length">Total : {{total}}</p>
+
+</div>
+<div *ngIf="!length">
+<h2>
+    You don't have any product in your cart!
+</h2>
+<a routerLink="">back to product list</a>
+</div>
